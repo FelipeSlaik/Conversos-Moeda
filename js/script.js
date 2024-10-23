@@ -1,11 +1,12 @@
-import { apiKey } from "../config.js";
+import dotenv from '../dotenv';
+dotenv.config();
+
 let dolar = 5.1;
 let usdInput = document.querySelector('#usd');
 let brlInput = document.querySelector('#brl');
-
+const API_KEY = process.env.API_KEY;
 function fetchExchangeRate(){
-    let url = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/USD`;
-
+    let url = process.env.API_URL;
     fetch(url)
     .then(response => response.json())
     .then(data => {
